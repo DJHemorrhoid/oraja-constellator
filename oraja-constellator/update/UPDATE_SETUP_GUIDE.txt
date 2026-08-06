@@ -1,0 +1,27 @@
+GitHub更新機能の公開前設定
+==========================
+
+1. GitHubにリポジトリを作成します。
+2. update_manifest.example.jsonを参考に、リポジトリ直下へupdate_manifest.jsonを配置します。
+3. 各配布ファイルのSHA-256を計算し、manifestへ記載します。
+4. update_source.jsonのmanifest_urlへ、update_manifest.jsonのRaw URLを設定します。
+5. repository_urlへGitHubリポジトリURLを設定します。
+6. 公開ZIPには、設定済みのupdate_source.jsonを含めます。
+
+更新対象
+--------
+app
+  ツール本体ZIP。設定・解析DB・ログ・フィルター設定・譜面傾向判定設定は保持されます。
+
+filter_settings
+  filter_packs内の標準フィルターJSONです。
+
+chart_tendency
+  analysis_packs内の譜面傾向判定JSONです。
+  feature_schema_versionが現在のツールと異なる場合は更新を適用しません。
+
+注意
+----
+・URLはHTTPSを使用してください。
+・SHA-256は必須です。
+・本体ZIPは、start_oraja_constellator.batとpython/launch_app.pyを含む構成にしてください。
