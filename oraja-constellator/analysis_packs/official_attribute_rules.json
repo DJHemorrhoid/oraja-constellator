@@ -1,0 +1,216 @@
+{
+  "format": "bms_filter_attribute_rule_pack",
+  "format_version": 1,
+  "pack_id": "official_attribute_rules",
+  "name": "標準譜面傾向分類ルール",
+  "pack_version": "1.2.0",
+  "feature_schema_version": 5,
+  "description": "st3検証を反映した16分乱打・腕ガチ・指ガチ微縦連・ディレイの標準分類ルール。",
+  "primary_rule_order": [
+    "ude_thick_repeat",
+    "yubi_micro",
+    "yubi_mid_band_ext",
+    "yubi_low_speed_micro",
+    "yubi_regular_chord",
+    "delay_high_speed",
+    "delay_low_speed_offgrid",
+    "delay_mixed",
+    "delay_tail",
+    "delay_thin_high_speed",
+    "ude_dense_low_speed_tail_randa",
+    "ude_low_intensity_tail_randa",
+    "randa_high_speed",
+    "randa_middle_speed",
+    "ude_low_speed_extended",
+    "randa_thin_low_speed"
+  ],
+  "rules": {
+    "ude_thick_repeat": {
+      "grid_max": 162.0,
+      "chord_min": 2.85,
+      "micro_chord_min": 0.26,
+      "micro_full_min": 0.06,
+      "full_alt_min": 0.3,
+      "full_rate_min": 0.03
+    },
+    "yubi_micro": {
+      "micro_min": 0.075,
+      "grid_min": 148.0,
+      "grid_max": 205.0
+    },
+    "yubi_low_speed_micro": {
+      "micro_min": 0.065,
+      "grid_min": 140.0,
+      "grid_max_exclusive": 148.0,
+      "micro_chord_max": 0.19
+    },
+    "yubi_regular_chord": {
+      "grid_min": 165.0,
+      "grid_max_exclusive": 175.0,
+      "chord_min": 2.4,
+      "chord_ge3_min": 0.45,
+      "subgrid_max_exclusive": 0.08,
+      "micro_chord_max_exclusive": 0.12,
+      "micro_min": 0.05,
+      "repeat_sum_min": 0.04
+    },
+    "delay_high_speed": {
+      "grid_min": 228.0,
+      "chord_max": 2.6
+    },
+    "delay_low_speed_offgrid": {
+      "subgrid_min": 0.35,
+      "chord_max": 2.05
+    },
+    "delay_mixed": {
+      "subgrid_min": 0.22,
+      "chord_max": 2.2,
+      "grid_min": 150.0
+    },
+    "delay_tail": {
+      "tail_sub_min": 0.26,
+      "subgrid_min": 0.1,
+      "chord_max": 2.15,
+      "grid_min": 150.0
+    },
+    "delay_thin_high_speed": {
+      "grid_min": 205.0,
+      "chord_max": 1.65,
+      "subgrid_min": 0.08
+    },
+    "ude_dense_low_speed_tail_randa": {
+      "grid_max": 150.0,
+      "chord_min": 2.5,
+      "chord_ge3_min": 0.45,
+      "tail_grid_min": 172.0,
+      "tail_chord_max": 2.45
+    },
+    "ude_low_intensity_tail_randa": {
+      "grid_max": 140.0,
+      "chord_min": 1.9,
+      "chord_ge3_min": 0.22,
+      "subgrid_max_exclusive": 0.25,
+      "micro_max_exclusive": 0.06,
+      "tail_grid_min": 172.0,
+      "tail_chord_max": 2.45
+    },
+    "randa_high_speed": {
+      "grid_min": 175.0,
+      "grid_max_exclusive": 228.0
+    },
+    "randa_middle_speed": {
+      "grid_min": 146.0,
+      "grid_max_exclusive": 175.0,
+      "subgrid_max_exclusive": 0.2,
+      "micro_max_exclusive": 0.075
+    },
+    "ude_low_speed_extended": {
+      "grid_max_exclusive": 150.0,
+      "chord_min": 2.0,
+      "chord_ge3_min": 0.3,
+      "micro_max_exclusive": 0.06
+    },
+    "randa_thin_low_speed": {
+      "grid_min": 128.0,
+      "grid_max_exclusive": 146.0,
+      "chord_max_exclusive": 1.85,
+      "subgrid_max_exclusive": 0.2,
+      "micro_max_exclusive": 0.06
+    },
+    "yubi_mid_band_ext": {
+      "micro_min": 0.055,
+      "grid_min": 148.0,
+      "grid_max": 205.0,
+      "subgrid_max_exclusive": 0.25,
+      "repeat_sum_min": 0.04
+    }
+  },
+  "scores": {
+    "micro_valid_grid_min": 140.0,
+    "yubi": {
+      "micro_base": 0.035,
+      "micro_width": 0.06,
+      "grid_ceiling": 215.0,
+      "grid_width": 15.0
+    },
+    "delay": {
+      "grid_base": 210.0,
+      "grid_width": 22.0,
+      "chord_ceiling_fast": 2.7,
+      "chord_width_fast": 0.5,
+      "subgrid_base": 0.1,
+      "subgrid_width": 0.13,
+      "chord_ceiling_mixed": 2.5,
+      "chord_width_mixed": 0.6
+    },
+    "ude": {
+      "grid_ceiling": 162.0,
+      "grid_width": 17.0,
+      "chord_base": 2.0,
+      "chord_width": 0.6,
+      "chord_ge3_base": 0.25,
+      "chord_ge3_width": 0.25
+    },
+    "randa": {
+      "grid_floor": 143.0,
+      "grid_floor_width": 8.0,
+      "grid_ceiling": 235.0,
+      "grid_ceiling_width": 10.0,
+      "micro_base": 0.04,
+      "micro_width": 0.07,
+      "subgrid_base": 0.18,
+      "subgrid_width": 0.1
+    }
+  },
+  "fallback": {
+    "score_threshold": 0.35,
+    "low_grid_delay_guard_grid_max_exclusive": 145.0,
+    "low_grid_delay_guard_subgrid_min": 0.35,
+    "low_grid_delay_guard_chord_max": 2.05,
+    "low_grid_ude_chord_min": 2.0,
+    "low_grid_ude_chord_ge3_min": 0.3,
+    "low_grid_ude_micro_max_exclusive": 0.06,
+    "rule_primary_score_floor": 0.5
+  },
+  "secondary": {
+    "score_threshold": 0.35,
+    "randa_yubi_micro_min": 0.02,
+    "randa_yubi_grid_max": 210.0,
+    "randa_delay_subgrid_min": 0.12,
+    "delay_randa_grid_min": 175.0,
+    "delay_randa_grid_max_exclusive": 228.0,
+    "delay_randa_subgrid_max_exclusive": 0.35,
+    "ude_yubi_grid_max_exclusive": 146.0,
+    "ude_yubi_micro_min": 0.1,
+    "ude_yubi_micro_chord_min": 0.15,
+    "ude_randa_tail_grid_min": 165.0,
+    "ude_randa_tail_chord_max": 2.6,
+    "yubi_ude_chord_min": 2.7,
+    "explicit_score_floor": 0.35
+  },
+  "confidence": {
+    "secondary_weight": 0.5,
+    "minimum": 0.05,
+    "maximum": 1.0
+  },
+  "subcategory": {
+    "randa_high_speed_grid_min": 195.0,
+    "ude_full_rate_none_max_exclusive": 0.015,
+    "ude_full_alt_min": 0.5,
+    "yubi_long_jack_min": 0.008,
+    "yubi_chord_min": 2.4,
+    "yubi_micro_chord_ratio_min": 0.5
+  },
+  "practice_low": {
+    "duration_min": 60.0,
+    "recovery_ratio_min": 0.4,
+    "last_kill_min": 2.0,
+    "burst_density_ratio_min": 2.3,
+    "stream_max": 10.0
+  },
+  "release_notes": [
+    "165～175 BPMの厚い同時押し型はmicro_rate>=0.05かつmicro_chord+micro_full>=0.04を必須化。",
+    "micro_rate 0.055～0.075帯は反復成分合計>=0.04かつsubgrid<0.25の場合に指ガチ第一候補。",
+    "16分乱打第一の第二属性として指ガチを保持するmicro閾値を0.02へ変更。"
+  ]
+}
